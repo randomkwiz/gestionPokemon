@@ -1,0 +1,8 @@
+Clase:
+    Pokemon
+        -TipoPrimario (puede ser un enum)
+        -TipoSecundario
+
+Gestion:
+    -obtenerFortalezas(Tipo tipo1, Tipo tipo2)
+    -obtenerDebilidades(Tipo tipo1, Tipo tipo2)
