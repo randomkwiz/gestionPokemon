@@ -47,4 +47,33 @@ public class Resguardo {
         System.out.println("En resguardo obtener tipo de posicion");
         return Tipo.NULL;
     }
+
+    /*INTERFAZ
+     * Signatura: public Tipo[] obtenerDebilidades (Tipo tipo, double[][]tablaPokemon)
+     * Comentario: genera un array con los tipos frente a los cuales el tipo introducido es débil
+     * Precondiciones: por referencia se pasa Tipo y array bidimensional de reales
+     * Entradas: Tipo tipo y double[][] tablaPokemon
+     * Salidas: Tipo[]
+     * Entradas/Salidas:
+     * Postcondiciones: se devuelve asociado al nombre un array de Tipos
+     * */
+    public Tipo[] obtenerDebilidades(Tipo tipo, double[][]tablaPokemon){
+        System.out.println("En resguardo obtener debilidades");
+        return null;
+    }
+
+
+    /*INTERFAZ
+     * Signatura: public int contarDebilidades (Tipo tipo, double[][]tablaPokemon)
+     * Comentario: dado un tipo y una tabla de fortalezas devuelve frente a cuantos tipos es debil
+     * Precondiciones: por referencia se pasa Tipo y array bidimensional de reales
+     * Entradas: Tipo tipo y double[][] tablaPokemon
+     * Salidas: entero
+     * Entradas/Salidas:
+     * Postcondiciones: se devuelve asociado al nombre un entero
+     * */
+    public int contarDebilidades (Tipo tipo, double[][]tablaPokemon){
+
+        return 0;
+    }
 }
