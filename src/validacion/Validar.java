@@ -20,7 +20,7 @@ public class Validar {
             System.out.println("¿Desea ejecutar el programa de Tipos Pokemon? Escribe 'Si' o 'No': ");
             entrada = sc.next();
         }while( (!entrada.toUpperCase().equals("SI") && !entrada.toUpperCase().equals("NO")) );
-        return entrada;
+        return entrada.toUpperCase();
     }
 
     /*

@@ -147,4 +147,103 @@ public class GestionPokemon {
         return fortalezas;
     }
 
+
+
+    /*INTERFAZ
+     * Signatura: public int contarInmunidades (Tipo tipo, double[][]tablaPokemon)
+     * Comentario: dado un tipo y una tabla de fortalezas devuelve frente a cuantos tipos es inmune
+     * Precondiciones: por referencia se pasa Tipo y array bidimensional de reales
+     * Entradas: Tipo tipo y double[][] tablaPokemon
+     * Salidas: entero
+     * Entradas/Salidas:
+     * Postcondiciones: se devuelve asociado al nombre un entero
+     * */
+    public int contarInmunidades (Tipo tipo, double[][]tablaPokemon){
+        int contador=0;
+        final double INMUNE = 0;
+        for(int j = 1; j < tablaPokemon.length; j ++) {
+            if (tablaPokemon[obtenerPosicionDeTipo(tipo)][j]  == INMUNE){   //funciona, no tocar. Para las fortalezas se cambia lo que se mira. Antes mirabamos por columnas ahora por filas
+                contador++;
+            }
+        }
+        return contador;
+    }
+
+
+
+    /*INTERFAZ
+     * Signatura: public Tipo[] esInmuneFrenteA (Tipo tipo)
+     * Comentario: genera un array con los tipos frente a los cuales el tipo introducido es inmune (de cuantos tipos recibe x0)
+     * Precondiciones: por referencia se pasa Tipo
+     * Entradas: Tipo tipo
+     * Salidas: Tipo[]
+     * Entradas/Salidas:
+     * Postcondiciones: se devuelve asociado al nombre un array de Tipos
+     * */
+    public Tipo[] esInmuneFrenteA(Tipo tipo){
+        UtilidadPokemon utilidad = new UtilidadPokemon();
+        double[][]tablaPokemon = new double[19][19];
+        utilidad.cargarTablaTipos(tablaPokemon);
+        Tipo[] inmune = new Tipo[contarInmunidades(tipo, tablaPokemon)];
+
+        final double INMUNE = 0;
+        for(int j = 1, i = 0; j < tablaPokemon.length; j ++) {  //empieza en 1 para que no cuente el tipo NULL
+            if (tablaPokemon[obtenerPosicionDeTipo(tipo)][j]  == INMUNE){   //funciona, no tocar
+                inmune[i] = obtenerTipodePosicion(j);
+                i++;
+            }
+        }
+        return inmune;
+    }
+
+
+
+    /*INTERFAZ
+     * Signatura: public int contarIneficaces (Tipo tipo, double[][]tablaPokemon)
+     * Comentario: dado un tipo y una tabla de fortalezas devuelve frente a cuantos tipos es ineficaz (a cuantos tipos les hace x0)
+     * Precondiciones: por referencia se pasa Tipo y array bidimensional de reales
+     * Entradas: Tipo tipo y double[][] tablaPokemon
+     * Salidas: entero
+     * Entradas/Salidas:
+     * Postcondiciones: se devuelve asociado al nombre un entero
+     * */
+    public int contarIneficaces (Tipo tipo, double[][]tablaPokemon){
+        int contador=0;
+        final double INMUNE = 0;
+        for(int j = 1; j < tablaPokemon.length; j ++) {
+            if (tablaPokemon[j][obtenerPosicionDeTipo(tipo)]  == INMUNE){   //funciona, no tocar. Para las fortalezas se cambia lo que se mira. Antes mirabamos por columnas ahora por filas
+                contador++;
+            }
+        }
+        return contador;
+    }
+
+
+
+    /*INTERFAZ
+     * Signatura: public Tipo[] esIneficazContra (Tipo tipo)
+     * Comentario: genera un array con los tipos frente a los cuales el tipo introducido es ineficaz (les hace x0)
+     * Precondiciones: por referencia se pasa Tipo
+     * Entradas: Tipo tipo
+     * Salidas: Tipo[]
+     * Entradas/Salidas:
+     * Postcondiciones: se devuelve asociado al nombre un array de Tipos
+     * */
+    public Tipo[] esIneficazContra (Tipo tipo){
+        UtilidadPokemon utilidad = new UtilidadPokemon();
+        double[][]tablaPokemon = new double[19][19];
+        utilidad.cargarTablaTipos(tablaPokemon);
+        Tipo[] inmune = new Tipo[contarIneficaces(tipo, tablaPokemon)];
+
+        final double INMUNE = 0;
+        for(int j = 1, i = 0; j < tablaPokemon.length; j ++) {  //empieza en 1 para que no cuente el tipo NULL
+            if (tablaPokemon[j][obtenerPosicionDeTipo(tipo)]  == INMUNE){   //funciona, no tocar
+                inmune[i] = obtenerTipodePosicion(j);
+                i++;
+            }
+        }
+        return inmune;
+    }
+
+
 }
