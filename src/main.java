@@ -55,10 +55,12 @@ public class main {
                 poke = new PokemonImpl(tipoPrimario);
                 //mostrarDatos
                 System.out.println("Tipo: " + tipoPrimario);
-                System.out.println("Es fuerte frente a: " + Arrays.toString(gestion.obtenerFortalezas(poke.getTipoPrimario())));
-                System.out.println("Es débil frente a: " + Arrays.toString(gestion.obtenerDebilidades(poke.getTipoPrimario())));
+                System.out.println("Es fuerte (le hace x2) frente a: " + Arrays.toString(gestion.obtenerFortalezas(poke.getTipoPrimario())));
+                System.out.println("Es débil (recibe x2) frente a: " + Arrays.toString(gestion.obtenerDebilidades(poke.getTipoPrimario())));
                 System.out.println("Es inmune (recibe x0) frente a: " + Arrays.toString(gestion.esInmuneFrenteA(poke.getTipoPrimario())));
                 System.out.println("Es ineficaz (le hace x0) frente a: " + Arrays.toString(gestion.esIneficazContra(poke.getTipoPrimario())));
+                System.out.println("Es resistente (recibe x0.5) frente a: " + Arrays.toString(gestion.obtenerResistencias(poke.getTipoPrimario())));
+                System.out.println("Son resistentes a él (le hace x0.5) los tipos: " + Arrays.toString(gestion.obtenerAguantes(poke.getTipoPrimario())));
 
             }
         }while(ejecutar.equals("SI"));

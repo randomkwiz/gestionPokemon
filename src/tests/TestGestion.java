@@ -34,19 +34,28 @@ public class TestGestion {
         System.out.println(Arrays.toString(gestion.obtenerFortalezas(Tipo.STEEL)));
         System.out.println(Arrays.toString(gestion.obtenerFortalezas(Tipo.WATER)));
 */
-
+/*
         System.out.println(Arrays.toString(gestion.esInmuneFrenteA(Tipo.GROUND)));
         System.out.println(Arrays.toString(gestion.esInmuneFrenteA(Tipo.FAIRY)));
         System.out.println(Arrays.toString(gestion.esInmuneFrenteA(Tipo.FLYING)));
         System.out.println(Arrays.toString(gestion.esInmuneFrenteA(Tipo.PSYCHIC)));
         System.out.println(Arrays.toString(gestion.esInmuneFrenteA(Tipo.DARK)));
         System.out.println(Arrays.toString(gestion.esInmuneFrenteA(Tipo.GHOST)));
-
+*/
 /*
         System.out.println(Arrays.toString(gestion.esIneficazContra(Tipo.GHOST)));
         System.out.println(Arrays.toString(gestion.esIneficazContra(Tipo.ELECTRIC)));
         System.out.println(Arrays.toString(gestion.esIneficazContra(Tipo.GROUND)));
         System.out.println(Arrays.toString(gestion.esIneficazContra(Tipo.NORMAL)));
 */
+
+        System.out.println(Arrays.toString(gestion.obtenerResistencias(Tipo.STEEL)));
+        System.out.println(Arrays.toString(gestion.obtenerAguantes(Tipo.STEEL)));
+
+        System.out.println(Arrays.toString(gestion.obtenerResistencias(Tipo.FIRE)));
+        System.out.println(Arrays.toString(gestion.obtenerFortalezas(Tipo.FIRE)));
+        System.out.println(Arrays.toString(gestion.obtenerResistencias(Tipo.FAIRY)));
+        System.out.println(Arrays.toString(gestion.obtenerDebilidades(Tipo.FAIRY)));
+        System.out.println(Arrays.toString(gestion.obtenerAguantes(Tipo.FIRE)));
     }
 }

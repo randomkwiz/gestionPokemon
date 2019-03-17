@@ -209,9 +209,9 @@ public class GestionPokemon {
      * */
     public int contarIneficaces (Tipo tipo, double[][]tablaPokemon){
         int contador=0;
-        final double INMUNE = 0;
+        final double INEFICAZ = 0;
         for(int j = 1; j < tablaPokemon.length; j ++) {
-            if (tablaPokemon[j][obtenerPosicionDeTipo(tipo)]  == INMUNE){   //funciona, no tocar. Para las fortalezas se cambia lo que se mira. Antes mirabamos por columnas ahora por filas
+            if (tablaPokemon[j][obtenerPosicionDeTipo(tipo)]  == INEFICAZ){   //funciona, no tocar. Para las fortalezas se cambia lo que se mira. Antes mirabamos por columnas ahora por filas
                 contador++;
             }
         }
@@ -233,17 +233,111 @@ public class GestionPokemon {
         UtilidadPokemon utilidad = new UtilidadPokemon();
         double[][]tablaPokemon = new double[19][19];
         utilidad.cargarTablaTipos(tablaPokemon);
-        Tipo[] inmune = new Tipo[contarIneficaces(tipo, tablaPokemon)];
+        Tipo[] ineficaz = new Tipo[contarIneficaces(tipo, tablaPokemon)];
 
-        final double INMUNE = 0;
+        final double INEFICAZ = 0;
         for(int j = 1, i = 0; j < tablaPokemon.length; j ++) {  //empieza en 1 para que no cuente el tipo NULL
-            if (tablaPokemon[j][obtenerPosicionDeTipo(tipo)]  == INMUNE){   //funciona, no tocar
-                inmune[i] = obtenerTipodePosicion(j);
+            if (tablaPokemon[j][obtenerPosicionDeTipo(tipo)]  == INEFICAZ){   //funciona, no tocar
+                ineficaz[i] = obtenerTipodePosicion(j);
                 i++;
             }
         }
-        return inmune;
+        return ineficaz;
     }
 
+
+
+    /*INTERFAZ
+     * Signatura: public int contarResistencias (Tipo tipo, double[][]tablaPokemon)
+     * Comentario: dado un tipo y una tabla de fortalezas devuelve frente a cuantos tipos es resistente (de cuantos tipos recibe 0.5)
+     * Precondiciones: por referencia se pasa Tipo y array bidimensional de reales
+     * Entradas: Tipo tipo y double[][] tablaPokemon
+     * Salidas: entero
+     * Entradas/Salidas:
+     * Postcondiciones: se devuelve asociado al nombre un entero
+     * */
+    public int contarResistencias (Tipo tipo, double[][]tablaPokemon){
+        int contador=0;
+        final double POCO_EFICAZ = 0.5;
+        for(int j = 0; j < tablaPokemon.length; j ++) {
+            if (tablaPokemon[obtenerPosicionDeTipo(tipo)][j]  == POCO_EFICAZ){
+                contador++;
+            }
+        }
+        return contador;
+    }
+
+
+    /*INTERFAZ
+     * Signatura: public Tipo[] obtenerResistencias (Tipo tipo)
+     * Comentario: genera un array con los tipos frente a los cuales el tipo introducido es resistente (recibe x0.5)
+     * Precondiciones: por referencia se pasa Tipo
+     * Entradas: Tipo tipo
+     * Salidas: Tipo[]
+     * Entradas/Salidas:
+     * Postcondiciones: se devuelve asociado al nombre un array de Tipos
+     * */
+    public Tipo[] obtenerResistencias (Tipo tipo){
+        UtilidadPokemon utilidad = new UtilidadPokemon();
+        double[][]tablaPokemon = new double[19][19];
+        utilidad.cargarTablaTipos(tablaPokemon);
+        Tipo[] res = new Tipo[contarResistencias(tipo, tablaPokemon)];
+
+        final double POCO_EFICAZ = 0.5;
+        for(int j = 0, i = 0; j < tablaPokemon.length; j ++) {
+            if (tablaPokemon[obtenerPosicionDeTipo(tipo)][j]  == POCO_EFICAZ){   //funciona, no tocar
+                res[i] = obtenerTipodePosicion(j);
+                i++;
+            }
+        }
+        return res;
+    }
+
+
+    /*INTERFAZ
+     * Signatura: public int contarAguantes (Tipo tipo, double[][]tablaPokemon)
+     * Comentario: dado un tipo y una tabla de fortalezas devuelve  cuantos tipos aguantan frente a mi (a cuantos les hago  x0.5)
+     * Precondiciones: por referencia se pasa Tipo y array bidimensional de reales
+     * Entradas: Tipo tipo y double[][] tablaPokemon
+     * Salidas: entero
+     * Entradas/Salidas:
+     * Postcondiciones: se devuelve asociado al nombre un entero
+     * */
+    public int contarAguantes (Tipo tipo, double[][]tablaPokemon){
+        int contador=0;
+        final double POCO_EFICAZ = 0.5;
+        for(int j = 0; j < tablaPokemon.length; j ++) {
+            if (tablaPokemon[j][obtenerPosicionDeTipo(tipo)]  == POCO_EFICAZ){
+                contador++;
+            }
+        }
+        return contador;
+    }
+
+
+    /*INTERFAZ
+     * Signatura: public Tipo[] obtenerAguantes (Tipo tipo)
+     * Comentario: genera un array con los tipos que aguantan frente a mi (a cuantos les hago  x0.5)
+     * Precondiciones: por referencia se pasa Tipo
+     * Entradas: Tipo tipo
+     * Salidas: Tipo[]
+     * Entradas/Salidas:
+     * Postcondiciones: se devuelve asociado al nombre un array de Tipos
+     * */
+    public Tipo[] obtenerAguantes (Tipo tipo){
+        UtilidadPokemon utilidad = new UtilidadPokemon();
+        double[][]tablaPokemon = new double[19][19];
+        utilidad.cargarTablaTipos(tablaPokemon);
+        Tipo[] aguante = new Tipo[contarAguantes(tipo, tablaPokemon)];
+
+        final double POCO_EFICAZ = 0.5;
+        for(int j = 0, i = 0; j < tablaPokemon.length; j ++) {
+            if (tablaPokemon[j][obtenerPosicionDeTipo(tipo)]  == POCO_EFICAZ){   //funciona, no tocar
+                aguante[i] = obtenerTipodePosicion(j);
+                i++;
+            }
+        }
+        return aguante;
+    }
 
 }
