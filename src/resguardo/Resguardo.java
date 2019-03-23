@@ -76,4 +76,18 @@ public class Resguardo {
 
         return 0;
     }
+
+    /*
+    * INTERFAZ
+    * Signatura: public Tipo[] dualidadTipos (Tipo tipoPrimario, Tipo tipoSecundario)
+    * Comentario:
+    * Precondiciones: por referencia se pasan dos enum de Tipo
+    * Entradas: Tipo tipoPrimario y Tipo tipoSecundario
+    * Salidas: Tipo[]
+    * Postcondiciones:
+    * */
+    public Tipo[] dualidadTipos(Tipo tipoPrimario, Tipo tipoSecundario){
+
+        return null;
+    }
 }

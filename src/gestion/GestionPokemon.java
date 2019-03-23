@@ -340,4 +340,6 @@ public class GestionPokemon {
         return aguante;
     }
 
+
+
 }
